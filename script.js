@@ -100,9 +100,9 @@ function init() {
                 $('#about-restaurant-1 .website').text('Перейти в меню');
                 $('#about-restaurant-1 .website').attr('href', description.website[0]);
                 if (description.zone == 1) {
-                    $('#about-restaurant-1 .price').html('<b>Стоимость доставки:</b> Доставка от 1200 рублей бесплатная (минимальный заказ).');
+                    $('#about-restaurant-1 .price').html('<b>Зона:</b> 1. <br> <b>Стоимость доставки:</b> Доставка от 1200 рублей бесплатная (минимальный заказ).');
                 } else {
-                    $('#about-restaurant-1 .price').html('<b>Стоимость доставки:</b> Доставка от 1800 рублей бесплатная. При сумме заказа менее 1800 рублей, стоимость доставки 200 рублей.');
+                    $('#about-restaurant-1 .price').html('<b>Зона:</b> 2. <br> <b>Стоимость доставки:</b> Доставка от 1800 рублей бесплатная. При сумме заказа менее 1800 рублей, стоимость доставки 200 рублей.');
                 }
                 for (let i = 1; i < description.address.length; i++) {
                     var clonedEl = $('#about-restaurant-1').clone(true);
@@ -119,9 +119,9 @@ function init() {
                 $('#about-restaurant-1 .website').text('Перейти в меню');
                 $('#about-restaurant-1 .website').attr('href', description.website);
                 if (description.zone == 1) {
-                    $('#about-restaurant-1 .price').html('<b>Стоимость доставки:</b> Доставка от 1200 рублей бесплатная (минимальный заказ).');
+                    $('#about-restaurant-1 .price').html('<b>Зона:</b> 1. <br> <b>Стоимость доставки:</b> Доставка от 1200 рублей бесплатная (минимальный заказ).');
                 } else {
-                    $('#about-restaurant-1 .price').html('<b>Стоимость доставки:</b> Доставка от 1800 рублей бесплатная. При сумме заказа менее 1800 рублей, стоимость доставки 200 рублей.');
+                    $('#about-restaurant-1 .price').html('<b>Зона:</b> 2. <br> <b>Стоимость доставки:</b> Доставка от 1800 рублей бесплатная. При сумме заказа менее 1800 рублей, стоимость доставки 200 рублей.');
                 }
             }
         } else {
