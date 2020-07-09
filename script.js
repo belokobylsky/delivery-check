@@ -1,5 +1,4 @@
 ymaps.ready(init);
-console.log('document.documentElement.clientWidth :>> ', document.documentElement.clientWidth);
 function init() {
     // Без создания карты не будет работать поиск по координатам
     var map = new ymaps.Map('map', {
