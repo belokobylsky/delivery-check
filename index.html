@@ -40,9 +40,16 @@
             border: 1px solid #ccc;
             box-shadow: none;
         }
-        .search-address-group button {
+        .search-address-group .check {
             font-weight: bold;
-            width: 10rem;
+            width: 8rem;
+        }
+        .search-address-group .reset {
+            font-size: 2rem;
+        }
+        .search-address-group .reset span {
+            display: block;
+            margin-top: -.575rem;
         }
         .search-address-group button:hover {
             background-color: #EB0000cc;
@@ -107,7 +114,10 @@
                     <input type="text" id="suggest" class="form-control input" placeholder="Укажите адрес доставки"
                         aria-label="Укажите адрес доставки" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn" type="submit" id="button">Проверить</button>
+                        <button class="btn reset" type="reset" id="reset">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <button class="btn check" type="submit" id="button">Проверить</button>
                     </div>
                 </div>
                 <p id="notice"></p>

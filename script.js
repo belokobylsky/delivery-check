@@ -26,6 +26,10 @@ function init() {
         $('#button').bind('click', function (e) {
             geocode();
         });
+        $('#reset').bind('click', function(e) {
+            $('#suggest').val('');
+            $('#notice').text('');
+        });
         $('#suggest').bind('keydown', function(e) {
             if (e.key == 'Enter') $('#button').trigger('click');
         });
@@ -35,7 +39,6 @@ function init() {
         var request = $('#suggest').val();
         if (!request) {
             $('#notice').text('Вы ввели пустой запрос');
-            $('#suggest').addClass('input_error');
             return;
         }
         // Геокодируем введённые данные.
@@ -64,7 +67,6 @@ function init() {
             }
             if (error) {    
                 $('#notice').text(error);
-                $('#suggest').addClass('input_error');
             } else {
                 highlightResult(obj);
             }
@@ -75,7 +77,6 @@ function init() {
 
     function highlightResult(obj) {
         // Удаляем сообщение об ошибке
-        $('#suggest').removeClass('input_error');
         $('#notice').text('');
         $('.cloned-about').each(function() {
             $(this).remove();
