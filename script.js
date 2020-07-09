@@ -1,5 +1,5 @@
 ymaps.ready(init);
-
+console.log('document.documentElement.clientWidth :>> ', document.documentElement.clientWidth);
 function init() {
     // Без создания карты не будет работать поиск по координатам
     var map = new ymaps.Map('map', {
@@ -9,7 +9,6 @@ function init() {
         }),
         suggestView = new ymaps.SuggestView('suggest'),
         deliveryPoint, deliveryZones;
-    console.log($('.suggests-address'))
 
     function setZones(json) {
         deliveryPoint = new ymaps.GeoObject({
@@ -86,7 +85,6 @@ function init() {
         var polygon = deliveryZones.searchContaining(coords).get(1) || deliveryZones.searchContaining(coords).get(0);
         deliveryPoint.geometry.setCoordinates(coords);
         if (polygon) {
-            console.log('polygon :>> ', polygon);
             var description = {
                 array: polygon.properties.get('description').split('; ')
             };
@@ -156,4 +154,3 @@ function init() {
         }
     })
 }
-// Россия, Санкт-Петербург, улица Мира, 16 
