@@ -1,5 +1,8 @@
-ymaps.ready(init);
-function init() {
+
+ymaps.ready(function() {
+    init(jQuery);
+});
+function init($) {
     // Без создания карты не будет работать поиск по координатам
     var map = new ymaps.Map('map', {
             center: [30.264981955459618, 59.9567962610097],
