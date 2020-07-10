@@ -146,22 +146,22 @@
     <div id="map" class="hidden"></div>
     <script defer>
         var imageSrc = 'modal-new-all.jpg', // вставьте путь к картинке внутрь кавычек
-            delayInMsc = 10000, // вставьте время в милисекундах вместо данного, по истечение которого попап закроется (1 с = 1000 мс)
+            delayInMsc = 100000, // вставьте время в милисекундах вместо данного, по истечение которого попап закроется (1 с = 1000 мс)
             link = 'https://bfrest.ru/dostavka', // вставьте ссылку, которая будет внизу, внутрь кавычек
             textInLink = 'К меню и доставке'; // замените текст внутри кавычек на тот, который хотите видеть в качестве ссылки
         
         
         $(document).ready(function(){
             $(
-                '<div class="modal fade" id="banner-modal" tabindex="-1" role="dialog" aria-labelledby="bannerModalLabel" aria-hidden="true">' +
+                '<div class="modal fade" id="banner-modal" tabindex="-1" role="dialog" aria-labelledby="bannerModalLabel" aria-hidden="true" style="background: rgba(0,0,0,.5);">' +
                     '<div class="modal-dialog  modal-dialog-centered">' +
-                        '<div class="modal-content">' +
-                            '<button type="button" class="close ml-auto mr-3 mt-3" data-dismiss="modal" aria-label="Close">' +
-                                '<span aria-hidden="true">&times;</span>' +
+                        '<div class="modal-content" style="background-color: transparent; border:none;">' +
+                            '<button type="button" class="close ml-auto mr-3 mt-3" data-dismiss="modal" aria-label="Close" style="height: 2rem; width: 2rem; opacity: 1; padding-bottom: 5px; border: 1px solid #fff; border-radius: 100%">' +
+                                '<span aria-hidden="true" style="color: #fff">&times;</span>' +
                             '</button>' +
                             '<div class="modal-body d-flex flex-column align-items-center">' +
                                 '<img src="' + imageSrc + '" alt="" style="max-height:500px;width:auto;max-width: 100%;">' +
-                                '<a href="' + link + '" class="danger" style="display:inline-block;font-size:15px;margin:20px auto;padding:10px 30px;border-radius:30px;cursor:pointer;background-color:#252525;color:#fff;text-transform:uppercase;text-decoration:none!important;">' +
+                                '<a href="' + link + '" class="danger" style="display:inline-block;font-size:15px;margin:20px auto;padding:10px 30px;border:1px solid #fff;cursor:pointer;background-color:#252525;color:#fff;text-transform:uppercase;text-decoration:none!important;">' +
                                     textInLink +
                                 '</a>' +
                             '</div>' +
