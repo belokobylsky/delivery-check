@@ -132,7 +132,7 @@ function init() {
             $('#about-restaurant-1 .website').attr('href', 'tel:+78126111110');
             $('#about-restaurant-1 .website').text('+7 (812) 611-11-10');
         }
-        $('#exampleModal').modal('show');
+        $('#about-modal').modal('show');
     }
 
     $.ajax({
