@@ -172,14 +172,14 @@
                         '</div>' +
                     '</div>'
                 ).prependTo('body');
-    
+
                 $('#banner-modal').modal('show');
                 // Закрытие по клику на прозрачный фон
                 $('#banner-modal .modal-content').on('click', function(e) {
                     if (e.target.closest('a') || e.target.closest('button')) return;
                     $('#banner-modal').modal('hide');
                 })
-    
+
                 setTimeout(function() {
                     $('#banner-modal').modal('hide')
                 }, delayInMsc)
