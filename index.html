@@ -148,7 +148,8 @@
         var imageSrc = 'modal-new-all.jpg', // вставьте путь к картинке внутрь кавычек
             delayInMsc = 10000, // вставьте время в милисекундах вместо данного, по истечение которого попап закроется (1 с = 1000 мс)
             link = 'https://bfrest.ru/dostavka', // вставьте ссылку, которая будет внизу, внутрь кавычек
-            textInLink = 'К меню и доставке'; // замените текст внутри кавычек на тот, который хотите видеть в качестве ссылки
+            textInLink = 'К меню и доставке', // замените текст внутри кавычек на тот, который хотите видеть в качестве ссылки
+            imageHeight = 500; // максимальная высота изображения в пикселях
         
         
         $(document).ready(function(){
@@ -161,7 +162,7 @@
                             '</button>' +
                             '<div class="modal-body d-flex flex-column align-items-center">' +
                                 '<a href="' + link + '" class="d-block">'+
-                                    '<img src="' + imageSrc + '" alt="" style="max-height:500px;width:auto;max-width: 100%;">' +
+                                    '<img src="' + imageSrc + '" alt="" style="max-height:' + imageHeight + 'px;width:auto;max-width: 100%;">' +
                                 '</a>'+
                                 '<a href="' + link + '" class="danger" style="display:inline-block;font-size:15px;margin:20px auto;padding:10px 30px;border:1px solid #fff;cursor:pointer;background-color:#252525;color:#fff;text-transform:uppercase;text-decoration:none!important;">' +
                                     textInLink +
