@@ -144,7 +144,7 @@
         </div>
     </div>
     <div id="map" class="hidden"></div>
-    <script defer>
+    <script async>
         var imageSrc = 'modal-new-all.jpg', // вставьте путь к картинке внутрь кавычек
             delayInMsc = 10000, // вставьте время в милисекундах вместо данного, по истечение которого попап закроется (1 с = 1000 мс)
             link = 'https://bfrest.ru/dostavka', // вставьте ссылку, которая будет внизу, внутрь кавычек
@@ -182,7 +182,7 @@
             setTimeout(function() {
                 $('#banner-modal').modal('hide')
             }, delayInMsc)
-        })
+        });
     </script>
 </body>
 </html>
