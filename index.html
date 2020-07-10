@@ -154,7 +154,7 @@
         $(document).ready(function(){
             $(
                 '<div class="modal fade" id="banner-modal" tabindex="-1" role="dialog" aria-labelledby="bannerModalLabel" aria-hidden="true" style="background: rgba(0,0,0,.5);">' +
-                    '<div class="modal-dialog  modal-dialog-centered">' +
+                    '<div class="modal-dialog modal-dialog-centered">' +
                         '<div class="modal-content" style="background-color: transparent; border:none;">' +
                             '<button type="button" class="close ml-auto mr-3 mt-3" data-dismiss="modal" aria-label="Close" style="height: 2rem; width: 2rem; opacity: 1; padding-bottom: 5px; border: 1px solid #fff; border-radius: 100%">' +
                                 '<span aria-hidden="true" style="color: #fff">&times;</span>' +
@@ -173,6 +173,11 @@
             ).prependTo('body');
 
             $('#banner-modal').modal('show');
+            // Закрытие по клику на прозрачный фон
+            $('#banner-modal .modal-content').on('click', function(e) {
+                if (e.target.closest('a') || e.target.closest('button')) return;
+                $('#banner-modal').modal('hide');
+            })
 
             setTimeout(function() {
                 $('#banner-modal').modal('hide')
