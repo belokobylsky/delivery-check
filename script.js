@@ -29,10 +29,6 @@ function init($) {
         $('#button').bind('click', function (e) {
             geocode();
         });
-        $('#reset').bind('click', function(e) {
-            $('#suggest').val('');
-            $('#notice').text('');
-        });
         $('#suggest').bind('keydown', function(e) {
             if (e.key == 'Enter') $('#button').trigger('click');
         });
@@ -95,7 +91,8 @@ function init($) {
                 var itemArr = item.split('=');
                 description[itemArr[0]] = itemArr[1];
             });
-            
+            $('.about-restaurants').removeClass('cannot-be-delivered')
+            $('.modal-delivery__header').text('Ближайшие к вам рестораны:');
             if (description.multiple) {
                 description.address = description.address.split(', ');
                 description.website = description.website.split(', ');
@@ -104,9 +101,11 @@ function init($) {
                 $('#about-restaurant-1 .website').text('Перейти в меню');
                 $('#about-restaurant-1 .website').attr('href', description.website[0]);
                 if (description.zone == 1) {
-                    $('#about-restaurant-1 .price').html('<b>Зона:</b> 1. <br> <b>Стоимость доставки:</b> Доставка от 1200 рублей бесплатная (минимальный заказ).');
+                    $('#about-restaurant-1 .price').html('<b>Стоимость доставки:</b> Доставка от 1200 рублей бесплатная (минимальный заказ).');
+                    $('#about-restaurant-1 .zone').text('Зона - 1')
                 } else {
-                    $('#about-restaurant-1 .price').html('<b>Зона:</b> 2. <br> <b>Стоимость доставки:</b> Доставка от 1800 рублей бесплатная. При сумме заказа менее 1800 рублей, стоимость доставки 200 рублей.');
+                    $('#about-restaurant-1 .price').html('<b>Стоимость доставки:</b> Доставка от 1800 рублей бесплатная. При сумме заказа менее 1800 рублей, стоимость доставки 200 рублей.');
+                    $('#about-restaurant-1 .zone').text('Зона - 2')
                 }
                 for (let i = 1; i < description.address.length; i++) {
                     var clonedEl = $('#about-restaurant-1').clone(true);
@@ -123,15 +122,25 @@ function init($) {
                 $('#about-restaurant-1 .website').text('Перейти в меню');
                 $('#about-restaurant-1 .website').attr('href', description.website);
                 if (description.zone == 1) {
-                    $('#about-restaurant-1 .price').html('<b>Зона:</b> 1. <br> <b>Стоимость доставки:</b> Доставка от 1200 рублей бесплатная (минимальный заказ).');
+                    $('#about-restaurant-1 .price').html('<b>Стоимость доставки:</b> Доставка от 1200 рублей бесплатная (минимальный заказ).');
+                    $('#about-restaurant-1 .zone').text('Зона - 1')
                 } else {
-                    $('#about-restaurant-1 .price').html('<b>Зона:</b> 2. <br> <b>Стоимость доставки:</b> Доставка от 1800 рублей бесплатная. При сумме заказа менее 1800 рублей, стоимость доставки 200 рублей.');
+                    $('#about-restaurant-1 .price').html('<b>Стоимость доставки:</b> Доставка от 1800 рублей бесплатная. При сумме заказа менее 1800 рублей, стоимость доставки 200 рублей.');
+                    $('#about-restaurant-1 .zone').text('Зона - 2')
                 }
             }
         } else {
             $('#about-restaurant-1 .name').text('');
             $('#about-restaurant-1 .price').text('');
-            $('#about-restaurant-1 .address').text('Данный адрес находится вне зоны нашего обслуживания. Возможна спец. доставка по телефону:');
+            $('#about-restaurant-1 .zone').text('');
+            $('.about-restaurants').addClass('cannot-be-delivered')
+            $('.modal-delivery__header').html('ВЫ НАХОДИТЕСЬ СЛИШКОМ ДАЛЕКО &#9785;')
+            $('#about-restaurant-1 .address').text(
+                'Данный адрес находится вне зоны нашего обслуживания.' + 
+                'Вернитесь на стартовую страницу и выберете другую' +
+                'ресторанную концепцию или закажите спец. доставку по' +
+                'телефону:'
+            );
             $('#about-restaurant-1 .website').attr('href', 'tel:+78126111110');
             $('#about-restaurant-1 .website').text('+7 (812) 611-11-10');
         }

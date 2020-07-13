@@ -1,0 +1,141 @@
+body {
+    background-color: #1e1e1e;
+    font-family: 'Montserrat';
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hidden {
+    display: none;
+}
+.choosing-title {
+    display: inline-block;
+    text-align: center;
+    font-size: 24px;
+    padding: 20px 12px;
+    font-weight: bold;
+    background-color: #b7b7b7;
+    text-transform: uppercase;
+}
+#suggest {
+    border-radius: 0;
+    background-color: #b7b7b7;
+    font-size: 20px;
+    color: #000;
+}
+#suggest::-webkit-input-placeholder       {text-align: center; opacity: 1; transition: .3s ease;}
+#suggest::-moz-placeholder                {text-align: center; opacity: 1; transition: .3s ease;}
+#suggest:-moz-placeholder                 {text-align: center; opacity: 1; transition: .3s ease;}
+#suggest:-ms-input-placeholder            {opacity: 1;}
+#suggest:focus::-webkit-input-placeholder {opacity: 0;}
+#suggest:focus::-moz-placeholder          {opacity: 0;}
+#suggest:focus:-moz-placeholder           {opacity: 0;}
+#suggest:focus:-ms-input-placeholder      {opacity: 0;}
+
+#notice {
+    color: #f33;
+    margin-top: .75rem;
+}
+
+#map {
+    width: 0;
+    height: 0;
+}
+.search-address-group input,
+.search-address-group button, 
+.search-address-group input:focus,
+.search-address-group button:focus,
+.search-address-group button:active {
+    height: 3rem;
+    box-shadow: none;
+    border-radius: 0;
+}
+.search-address-group .btn-check {
+    font-weight: bold;
+    width: 9rem;
+    color: #b7b7b7;
+    text-transform: uppercase;
+    background-color: #000;
+}
+.concept-type+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    filter: grayscale(1) opacity(.6);
+    cursor: pointer;
+    transition: .3s ease;
+    height: 70px;
+
+}
+.concept-type + label img {
+    max-height: 70px;
+    max-width: 150px;
+}
+
+.concept-type:checked + label {
+    filter: grayscale(0) opacity(1);
+}
+.concept-type:not(:checked) + label:hover {
+    filter: opacity(.8) grayscale(.25);
+}
+
+.modal-delivery {
+    border-radius: 0;
+}
+.modal-delivery .modal-content {
+    border: none;
+    border-radius: 0;
+}
+.modal-delivery__header {
+    background-color: #000;
+    font-weight: bold;
+    border-radius: 0;
+    color: #fff;
+    font-size: 20px;
+}
+.website {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.website:not([href*="tel:"]) {
+    display: inline-block;
+    padding: 3px 7.5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #000;
+    color: #FFF;
+}
+.website:hover {
+    text-decoration: none;
+}
+.name {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.about-restaurants p {
+    font-size: 14px;
+    margin-bottom: 7.5px;
+}
+.zone {
+    font-weight: bold;
+}
+.cannot-be-delivered {
+    padding-top: 0;
+}
+.cannot-be-delivered .address {
+    margin-top: -1rem;
+}
+.website[href*="tel:"] {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+}
