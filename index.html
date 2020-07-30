@@ -4,14 +4,12 @@
     <title>Проверка адреса на попадание в зону доставки</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script
-        src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;coordorder=longlat&amp;apikey=694b4ce5-461b-4a19-9953-c9a4ed8abf0a"
-        type="text/javascript"></script>
-    <script src="script.js" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;coordorder=longlat&amp;apikey=694b4ce5-461b-4a19-9953-c9a4ed8abf0a" type="text/javascript"></script>
     <script type="text/javascript" src="https://yandex.st/jquery/2.2.3/jquery.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="script.js" type="text/javascript"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,15 +18,18 @@
         <div class="modal-dialog modal-delivery modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header modal-delivery__header">
-                    Ближайшие к вам рестораны:  
+                    <span>Ближайшие к вам рестораны:</span> 
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        ×
+                    </button>
                 </div>
                 <div class="modal-body about-restaurants">
                     <div id="about-restaurant-1">
-                        <h5 class="name"></h5>
-                        <p class="address"></p>
-                        <p class="price"></p>
-                        <p class="zone"></p>
-                        <a href="#" class="website">Перейти в меню</a>
+                        <h5 class="about-restaurant__name"></h5>
+                        <p class="about-restaurant__address"></p>
+                        <p class="about-restaurant__price"></p>
+                        <p class="about-restaurant__zone"></p>
+                        <a href="#" class="about-restaurant__website">Перейти в меню</a>
                     </div>
                 </div>
             </div>
@@ -38,49 +39,61 @@
         <div class="row justify-content-center">
             <h3 class="choosing-title">Выберите ресторанную концепцию</h3>
         </div>
-        <div class="row radio-buttons mt-5">
-            <div class="col-6 col-md-3">
-                <input type="radio" id="radio-brasserie" name="concept-type" value="brasserie-kriek" checked
+        <div class="row radio-buttons mt-4 justify-content-center">
+            <div class="col-6 col-md-4">
+                <input type="radio" id="radio-brasserie" name="concept-type" value="brasserie-kriek"
                     class="concept-type hidden">
                 <label for="radio-brasserie">
                     <img src="img/logo-kriek.png" alt="">
                 </label>
             </div>
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-4">
                 <input type="radio" id="radio-jager" name="concept-type" value="jager-restopub"
                     class="concept-type hidden">
                 <label for="radio-jager">
-                    <img src="img/logo-jager.png" alt="">
+                    <img src="img/logo-jager.png" style="filter:brightness(0);" alt="">
                 </label>
             </div>
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-4">
                 <input type="radio" id="radio-karlovy" name="concept-type" value="karlovy-pivovary"
                     class="concept-type hidden">
                 <label for="radio-karlovy">
                     <img src="img/logo-karlovy.png" alt="">
                 </label>
             </div>
-            <div class="col-6 col-md-3">
+            <div class="col-6 mt-3 col-md-4">
                 <input type="radio" id="radio-ivan" name="concept-type" value="ivan-da-maria"
                     class="concept-type hidden">
                 <label for="radio-ivan">
                     <img src="img/logo-veron.png" alt="">
                 </label>
             </div>
+            <div class="col-6 mt-3 col-md-4">
+                <input type="radio" id="radio-chateau" name="concept-type" value="chateau-vintage"
+                    class="concept-type hidden">
+                <label for="radio-chateau">
+                    <img src="img/logo-chateau.png" alt="">
+                </label>
+            </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-4">
             <div class="col-12">
                 <div class="input-group search-address-group">
-                    <input type="text" id="suggest" class="form-control input" placeholder="Укажите адрес доставки"
-                        aria-label="Укажите адрес доставки" aria-describedby="button-addon2">
+                    <input type="text" id="search-address-inp" class="form-control input" placeholder="Укажите адрес доставки"
+                        aria-label="Укажите адрес доставки" aria-describedby="search-address-submit">
                     <div class="input-group-append">
-                        <button class="btn btn-check" type="submit" id="button">Определить</button>
+                        <button class="btn btn-check" type="submit" id="search-address-submit">Определить</button>
                     </div>
                 </div>
-                <p id="notice"></p>
+                <p id="search-address-notice"></p>
             </div>
         </div>
     </div>
     <div id="map" class="hidden"></div>
+
+    <div class="container">
+        <iframe src="https://yandex.ru/map-widget/v1/-/CCQp4KFDpA" width="100%" height="400" allowfullscreen="true" style="position:relative;"></iframe>
+
+    </div>
 </body>
 </html>
